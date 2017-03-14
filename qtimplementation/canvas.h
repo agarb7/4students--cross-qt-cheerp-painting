@@ -1,26 +1,28 @@
 #ifndef QTIMPLEMENTATION_CANVAS_H
 #define QTIMPLEMENTATION_CANVAS_H
 
+#include "imagebuffer.h"
+
 #include "core/canvas.h"
 
-#include <QtGui/QImage>
+#include <QtWidgets/QWidget>
 
 namespace QtImplementation {
 
-class Canvas: public Core::Canvas
+class Canvas: public QWidget, public Core::Canvas
 {
+    Q_OBJECT
+
 public:
-    int width() const override;
-    int height() const override;
+    explicit Canvas(int bufferWidth, int bufferHeight, QWidget *parent = 0);
+    ImageBuffer *imageBuffer() const override;
 
-    Core::Color color(int x, int y) const override;
-    void setColor(int x, int y, Core::Color color) override;
-
-    QImage *image() const;
-    void setImage(QImage *image);
+protected:
+    void paintEvent(QPaintEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
 
 private:
-    QImage *m_image = 0;
+    mutable ImageBuffer m_buffer;
 };
 
 } // namespace QtImplementation

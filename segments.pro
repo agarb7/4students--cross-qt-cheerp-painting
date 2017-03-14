@@ -27,23 +27,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        widget.cpp \
     core/canvas.cpp \
     core/scene.cpp \
-    core/paint.cpp \
     core/inputbuffer.cpp \
     mock/inputbuffer.cpp \
-    qtimplementation/canvas.cpp
+    qtimplementation/canvas.cpp \
+    core/imagebuffer.cpp \
+    qtimplementation/imagebuffer.cpp
 
-HEADERS  += widget.h \
+HEADERS  += \
     core/canvas.h \
     core/scene.h \
-    core/paint.h \
     core/segment.h \
     core/point.h \
     core/inputbuffer.h \
     mock/inputbuffer.h \
     qtimplementation/canvas.h \
-    core/color.h
+    core/color.h \
+    core/imagebuffer.h \
+    qtimplementation/imagebuffer.h
 
 FORMS    +=

@@ -1,35 +1,33 @@
 #include "canvas.h"
 
+#include <QtGui/QPainter>
+#include <QtGui/QPaintEvent>
+#include <QtGui/QMouseEvent>
+
 namespace QtImplementation {
 
-int Canvas::width() const
+Canvas::Canvas(int bufferWidth, int bufferHeight, QWidget *parent) :
+    QWidget(parent),
+    m_buffer(bufferWidth, bufferHeight)
 {
-    return m_image->width();
 }
 
-int Canvas::height() const
+ImageBuffer *Canvas::imageBuffer() const
 {
-    return m_image->height();
+    return &m_buffer;
 }
 
-Core::Color Canvas::color(int x, int y) const
+void Canvas::paintEvent(QPaintEvent *event)
 {
-    return m_image->pixel(x, y);
+    QPainter painter(this);
+    painter.drawImage(event->rect(), m_buffer.image(), event->rect());
 }
 
-void Canvas::setColor(int x, int y, Core::Color color)
+void Canvas::mousePressEvent(QMouseEvent *event)
 {
-    m_image->setPixel(x, y, color);
-}
-
-QImage *Canvas::image() const
-{
-    return m_image;
-}
-
-void Canvas::setImage(QImage *image)
-{
-    m_image = image;
+    auto pos = event->pos();
+    onMousePress(pos.x(), pos.y());
+    update();
 }
 
 } // namespace QtImplementation
