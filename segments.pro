@@ -11,7 +11,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = segments
 TEMPLATE = app
 
-CONFIG += c++14
+CONFIG += c++14 \
+    object_parallel_to_source
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings
@@ -31,8 +32,8 @@ SOURCES += main.cpp\
     core/scene.cpp \
     core/paint.cpp \
     core/inputbuffer.cpp \
-    qtimplementation/canvas_.cpp \
-    mock/inputbuffer_.cpp
+    mock/inputbuffer.cpp \
+    qtimplementation/canvas.cpp
 
 HEADERS  += widget.h \
     core/canvas.h \
