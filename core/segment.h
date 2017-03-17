@@ -8,6 +8,10 @@ namespace Core {
 
 struct Segment
 {
+    Segment(Point point1, Point point2, Color color = blackColor) :
+        point1(point1), point2(point2), color(color)
+    {}
+
     Point point1;
     Point point2;
     Color color = blackColor;

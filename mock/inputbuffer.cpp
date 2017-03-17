@@ -5,12 +5,11 @@
 namespace Mock {
 
 InputBuffer::InputBuffer()
-    : InputBuffer {
-        {{0,0}, {0,100}},
-        {{0,100}, {50,0}},
-        {{50,0}, {0,0}}
-    }
-{}
+{
+    m_segments.push_back(Core::Segment({0,0}, {0,100}, Core::blackColor));
+    m_segments.push_back(Core::Segment({0,100}, {50,0}, Core::blackColor));
+    m_segments.push_back(Core::Segment({50,0}, {0,0}, Core::blackColor));
+}
 
 InputBuffer::InputBuffer(std::initializer_list<Core::Segment> segments)
     : m_segments(segments)

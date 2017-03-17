@@ -12,7 +12,7 @@ Canvas::Canvas(int bufferWidth, int bufferHeight, QWidget *parent) :
 {
 }
 
-ImageBuffer *Canvas::imageBuffer() const
+ImageBuffer *Canvas::imageBuffer()
 {
     return &m_buffer;
 }

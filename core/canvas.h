@@ -15,7 +15,7 @@ class Canvas
 public:    
     virtual ~Canvas();
 
-    virtual ImageBuffer *imageBuffer() const = 0;
+    virtual ImageBuffer *imageBuffer() = 0;
 
     Scene *scene() const;
     void setScene(Scene *scene);

@@ -25,26 +25,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-
-SOURCES += main.cpp\
-    core/canvas.cpp \
-    core/scene.cpp \
-    core/inputbuffer.cpp \
-    mock/inputbuffer.cpp \
-    qtimplementation/canvas.cpp \
-    core/imagebuffer.cpp \
-    qtimplementation/imagebuffer.cpp
-
-HEADERS  += \
+HEADERS += \
     core/canvas.h \
-    core/scene.h \
-    core/segment.h \
-    core/point.h \
-    core/inputbuffer.h \
-    mock/inputbuffer.h \
-    qtimplementation/canvas.h \
     core/color.h \
     core/imagebuffer.h \
+    core/inputbuffer.h \
+    core/point.h \
+    core/scene.h \
+    core/segment.h \
+    mock/inputbuffer.h \
+    qtimplementation/canvas.h \
     qtimplementation/imagebuffer.h
 
-FORMS    +=
+SOURCES += \
+    core/canvas.cpp \
+    core/imagebuffer.cpp \
+    core/inputbuffer.cpp \
+    core/scene.cpp \
+    mock/inputbuffer.cpp \
+    qtapplication/main.cpp \
+    qtimplementation/canvas.cpp \
+    qtimplementation/imagebuffer.cpp
+    core/color.cpp

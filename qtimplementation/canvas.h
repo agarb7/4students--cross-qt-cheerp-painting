@@ -14,15 +14,15 @@ class Canvas: public QWidget, public Core::Canvas
     Q_OBJECT
 
 public:
-    explicit Canvas(int bufferWidth, int bufferHeight, QWidget *parent = 0);
-    ImageBuffer *imageBuffer() const override;
+    Canvas(int bufferWidth, int bufferHeight, QWidget *parent = 0);
+    ImageBuffer *imageBuffer() override;
 
 protected:
     void paintEvent(QPaintEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
 
 private:
-    mutable ImageBuffer m_buffer;
+    ImageBuffer m_buffer;
 };
 
 } // namespace QtImplementation
